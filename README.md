@@ -53,7 +53,7 @@ Leaderboard Page
 
 ## Thank You
 
-Pleas let me know if there are any issues or if you have any questions.
+Please let me know if there are any issues or if you have any questions.
 
 Jayson Nabor
 <br />

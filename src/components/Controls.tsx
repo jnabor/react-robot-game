@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
 import { GameState } from '../types'
@@ -23,32 +23,6 @@ const Controls: React.SFC<ControlsProps> = ({
   moveForward,
   state,
 }) => {
-  let hndlr: any = null
-  const keyEventHandler = (e: any) => {
-    if (hndlr !== null) {
-      return
-    }
-
-    hndlr = setTimeout(() => {
-      if (e.key === 'ArrowUp') {
-        console.log('Key:ArrowUp')
-      } else if (e.key === 'ArrowLeft') {
-        console.log('Key:ArrowLeft')
-      } else if (e.key === 'ArrowRight') {
-        console.log('Key:ArrowRight')
-      }
-
-      clearTimeout(hndlr)
-      hndlr = null
-    }, 300)
-  }
-
-  useEffect(() => {
-    if (window) {
-      window.addEventListener('keydown', keyEventHandler)
-    }
-  }, [])
-
   const disabled = state === GameState.IDLE ? true : false
 
   return (
