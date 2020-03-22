@@ -10,6 +10,10 @@ You’ll need to have Node >= 8.10 and npm >= 5.6 on your machine
 
 In the project directory, you can run:
 
+### `npm install`
+
+Installs dependencies
+
 ### `npm start`
 
 Runs the app in the development mode.<br />
