@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  font-family: 'Wallpoet', cursive;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #2d3032;
+  color: #ffffff;
+}
+
+input,
+select,
+button {
+  font-family: 'Wallpoet', cursive;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+p {
+  display: block;
+  margin-block-start: 0.4em;
+  margin-block-end: 0.4em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
