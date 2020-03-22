@@ -64,11 +64,6 @@ const Controls: React.SFC<ControlsProps> = ({
           <span className="material-icons">rotate_right</span>
         </Button>
       </section>
-      <section>
-        <h5 style={{ color: '#26666b' }}>
-          click the control buttons or press ← ↑ → keys
-        </h5>
-      </section>
     </Main>
   )
 }
