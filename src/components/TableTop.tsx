@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { GAME_GRIDS } from '../config'
 
 export const Tile = styled.div`
-  border: 1px solid #26666b;
+  border: 2px solid #2d3032;
   padding: 0;
   text-align: center;
   position: absolute;

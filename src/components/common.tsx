@@ -89,11 +89,10 @@ export const Screen = styled.div`
   position: relative;
   height: ${GAME_DIMENSION + 10}px;
   width: ${GAME_DIMENSION + 10}px;
-  border: 5px solid #26666b;
+  border: 5px solid #2d3032;
   background-color: #333b3c;
-  box-shadow: 0 4px 4px 0 #222;
   margin: 10px 0px;
-  border-radius: 4px;
+  border-radius: 8px;
 `
 
 export const ModalContainer = styled.div`
