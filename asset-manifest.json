@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/react-robot-game/static/css/main.26f8e1bc.chunk.css",
+    "main.js": "/react-robot-game/static/js/main.5807da9f.chunk.js",
+    "main.js.map": "/react-robot-game/static/js/main.5807da9f.chunk.js.map",
+    "runtime-main.js": "/react-robot-game/static/js/runtime-main.10246a4b.js",
+    "runtime-main.js.map": "/react-robot-game/static/js/runtime-main.10246a4b.js.map",
+    "static/js/2.14ddb99d.chunk.js": "/react-robot-game/static/js/2.14ddb99d.chunk.js",
+    "static/js/2.14ddb99d.chunk.js.map": "/react-robot-game/static/js/2.14ddb99d.chunk.js.map",
+    "index.html": "/react-robot-game/index.html",
+    "precache-manifest.48a520a7fb176a5d20bf6eed8ebedb38.js": "/react-robot-game/precache-manifest.48a520a7fb176a5d20bf6eed8ebedb38.js",
+    "service-worker.js": "/react-robot-game/service-worker.js",
+    "static/css/main.26f8e1bc.chunk.css.map": "/react-robot-game/static/css/main.26f8e1bc.chunk.css.map",
+    "static/js/2.14ddb99d.chunk.js.LICENSE.txt": "/react-robot-game/static/js/2.14ddb99d.chunk.js.LICENSE.txt",
+    "static/media/destroyed.svg": "/react-robot-game/static/media/destroyed.f2e8889b.svg",
+    "static/media/robot.svg": "/react-robot-game/static/media/robot.fa3c2247.svg",
+    "static/media/star.svg": "/react-robot-game/static/media/star.db6b4396.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.10246a4b.js",
+    "static/js/2.14ddb99d.chunk.js",
+    "static/css/main.26f8e1bc.chunk.css",
+    "static/js/main.5807da9f.chunk.js"
+  ]
+}
