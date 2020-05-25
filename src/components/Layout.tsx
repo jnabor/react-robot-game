@@ -103,7 +103,7 @@ const Layout: React.SFC<LayoutProps> = ({
         <Container>{children}</Container>
       </Main>
       <Footer>
-        <h4>Recruitment Challenge Robot Game </h4>
+        <h4>Robot Game Challenge</h4>
         <h6>2020 Made with React by Jayson Nabor™</h6>
       </Footer>
     </AppLayout>

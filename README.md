@@ -2,6 +2,10 @@
 
 A robot game made with react, styled-components, and typescript.
 
+## Live demo inGitHub pages
+
+[http://jnabor.github.io/react-robot-game](http://jnabor.github.io/react-robot-game)
+
 ## Pre-Requisites
 
 You’ll need to have Node >= 8.10 and npm >= 5.6 on your machine
