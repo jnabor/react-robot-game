@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import { GAME_DIMENSION } from '../config'
 
 export const baseButton = styled.button`
-  background-color: #31948f;
+  background-color: #556163;
   outline: none;
   border: none;
   color: white;
@@ -15,7 +15,7 @@ export const baseButton = styled.button`
   }
   :active {
     transform: translateY(1px);
-    background-color: #216d69;
+    background-color: #36837f;
   }
   :disabled {
     background-color: #333b3c;
@@ -35,36 +35,16 @@ export const GameButton = styled(baseButton)`
   padding: 2px;
   font-size: 24px;
 `
-interface MenuButtonProps {
-  active?: boolean
-}
-export const MenuButton = styled.button<MenuButtonProps>`
+export const MenuButton = styled.button`
   margin: 5px;
   padding: 4px 8px 4px 8px;
-  font-size: 16px;
+  font-size: 18px;
   background-color: transparent;
   outline: none;
   border: none;
   color: white;
-  ${props =>
-    props.active &&
-    css`
-      color: #b7c034;
-    `};
+  color: #a2a7aa;
   text-align: center;
-  cursor: pointer;
-  :hover {
-    color: #32ada7;
-    box-shadow: 0 3px 3px 0 #222;
-  }
-  :active {
-    transform: translateY(1px);
-  }
-  :disabled {
-    transform: translateY(1px);
-    box-shadow: none;
-    color: #575840;
-  }
 `
 
 interface CardProps {
@@ -87,12 +67,10 @@ export const Card = styled.div<CardProps>`
 
 export const Screen = styled.div`
   position: relative;
-  height: ${GAME_DIMENSION + 10}px;
-  width: ${GAME_DIMENSION + 10}px;
-  border: 5px solid #2d3032;
+  height: ${GAME_DIMENSION + 50}px;
+  width: ${GAME_DIMENSION + 20}px;
   background-color: #333b3c;
   margin: 10px 0px;
-  border-radius: 8px;
 `
 
 export const ModalContainer = styled.div`

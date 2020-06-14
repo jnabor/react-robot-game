@@ -38,7 +38,7 @@ const Timer: React.SFC<TimerProps> = ({ timeout, state }) => {
   }, [state])
 
   return (
-    <Card color={'#a2ac26'}>
+    <Card color={'#b5b894'}>
       <p>
         TIME{' '}
         <span style={{ color: timeColor }}>

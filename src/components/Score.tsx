@@ -7,7 +7,7 @@ export interface ScoreProps {
 
 const Score: React.SFC<ScoreProps> = ({ score }) => {
   return (
-    <Card color={'#a2ac26'}>
+    <Card color={'#b5b894'}>
       <p>
         SCORE{' '}
         <span style={{ color: '#ffffff' }}>

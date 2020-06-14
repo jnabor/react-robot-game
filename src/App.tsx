@@ -8,7 +8,6 @@ import Controls from './components/Controls'
 import ModalOver from './components/ModalOver'
 import ModalStart from './components/ModalStart'
 import Page from './components/Page'
-import Leaderboard from './components/Leaderboard'
 import { Screen } from './components/common'
 
 import { apiRequest, localItemPlayerName } from './services/mock'
@@ -180,9 +179,6 @@ const App: React.SFC<AppProps> = () => {
             rotateRight={rotateRight}
             moveForward={moveForward}
           />
-        </Page>
-        <Page name="leaderboard" page={page}>
-          <Leaderboard player={player} />
         </Page>
       </Layout>
       <ModalOver

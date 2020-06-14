@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { GameState } from '../types'
-import { IconButton, MenuButton } from './common'
+import { MenuButton } from './common'
 import RobotIcon from '../assets/robot.png'
 
 export const AppLayout = styled.div`
@@ -11,7 +11,7 @@ export const AppLayout = styled.div`
 
 export const Header = styled.header`
   display: grid;
-  grid-template-columns: 32px 153px 1fr 174px;
+  grid-template-columns: 32px 200px 1fr 1fr;
   padding: 15px;
   justify-content: space-between;
   min-width: 610px;
@@ -37,7 +37,7 @@ export const Container = styled.div`
 export const Footer = styled.footer`
   margin-top: 40px;
   text-align: center;
-  color: #26666b;
+  color: #a2a7aa;
   min-width: 610px;
 `
 
@@ -60,11 +60,6 @@ const Layout: React.SFC<LayoutProps> = ({
 }) => {
   const name = player || 'anonymous'
 
-  const handleNavigate = (path: string) => {
-    if (page === path) return
-    setPage(path)
-  }
-
   return (
     <AppLayout>
       <Header>
@@ -72,39 +67,24 @@ const Layout: React.SFC<LayoutProps> = ({
           <Logo src={RobotIcon} />
         </div>
         <div
-          onClick={() => handleNavigate('game')}
           style={{ justifySelf: 'start' }}
         >
-          <MenuButton active={page === 'game'}>ROBOT GAME</MenuButton>
+          <MenuButton>ROBOT GAME</MenuButton>
         </div>
         <div
           style={{ textAlign: 'center', fontSize: '16px', paddingTop: '5px' }}
         >
-          PLAYER: {name.toLocaleUpperCase()}
-          <IconButton onClick={editName} disabled={state !== GameState.IDLE}>
-            <span className="material-icons" style={{ fontSize: '16px' }}>
-              create
-            </span>
-          </IconButton>
         </div>
         <div
-          onClick={() => handleNavigate('leaderboard')}
           style={{ justifySelf: 'end' }}
         >
-          <MenuButton
-            active={page === 'leaderboard'}
-            disabled={state !== GameState.IDLE}
-          >
-            LEADERBOARD
-          </MenuButton>
         </div>
       </Header>
       <Main>
         <Container>{children}</Container>
       </Main>
       <Footer>
-        <h4>Robot Game Challenge</h4>
-        <h6>2020 Made with React by Jayson Nabor™</h6>
+        <span>Made with React by Jay<span style={{ color: '#267ab3'}}>son</span> N<span style={{ color: '#267ab3'}}>ab</span>or™</span>
       </Footer>
     </AppLayout>
   )
