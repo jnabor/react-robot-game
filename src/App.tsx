@@ -53,6 +53,7 @@ const App: React.SFC<AppProps> = () => {
 
   const moveForward = () => {
     if (gameState !== GameState.STARTED) return
+    console.log('moving forward..')
     let location = [...robotLoc]
     switch (direction) {
       case Direction.UP:
@@ -86,6 +87,25 @@ const App: React.SFC<AppProps> = () => {
     setGameState(GameState.OVER)
   }
 
+  const keyHandler = (e: KeyboardEvent)=> {
+    console.log('key press: ', e.key)
+    console.log(gameState)
+    switch (e.key) {
+      case "ArrowUp":
+        console.log('moving forward') 
+        moveForward()
+        break
+      case "ArrowLeft":
+        console.log('rotating left') 
+        rotateLeft()
+        break
+      case "ArrowRight":
+        console.log('rotating right') 
+        rotateRight()
+        break
+    }
+
+  }
 
   useEffect(() => {
     // check if the target has been reached
@@ -96,6 +116,13 @@ const App: React.SFC<AppProps> = () => {
       return
     }
   }, [size, robotLoc])
+
+  useEffect(()=> {
+    document.addEventListener("keydown", keyHandler, false);
+    return () => {
+      document.removeEventListener("keydown", keyHandler, false);
+    }
+  },[gameState, direction, robotLoc, targetLoc])
 
   useEffect(() => {
     setGameIdle()

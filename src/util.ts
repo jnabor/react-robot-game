@@ -14,7 +14,6 @@ export const getRandLocation = (size: number, exempt: [number, number]): [number
 }
 
 export const getMiddle = (size: number): [number, number] => {
-  console.log('new middle: ', [Math.floor(size / 2), Math.floor(size / 2)])
   return [Math.floor(size / 2), Math.floor(size / 2)]
 }
 
