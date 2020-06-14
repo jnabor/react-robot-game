@@ -52,8 +52,6 @@ export const TIMER_START = 60 // in seconds
 Game Page
 ![Image description](capture_game.jpg)
 
-Leaderboard Page
-![Image description](capture_leaderboard.jpg)
 
 ## Thank You
 

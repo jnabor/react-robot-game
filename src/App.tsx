@@ -6,11 +6,8 @@ import Target from './components/Target'
 import Robot from './components/Robot'
 import Controls from './components/Controls'
 import ModalOver from './components/ModalOver'
-import ModalStart from './components/ModalStart'
-import Page from './components/Page'
 import { Screen } from './components/common'
 
-import { apiRequest, localItemPlayerName } from './services/mock'
 import { GameState, Direction } from './types'
 import { getRandLocation, getMiddle, isAtEdge } from './util'
 
@@ -21,43 +18,25 @@ const App: React.SFC<AppProps> = () => {
   const [gameState, setGameState] = useState<GameState>(GameState.IDLE)
   const [destroyed, setDestroyed] = useState<boolean>(false)
   const [targetLoc, setTargetLoc] = useState<[number, number]>([0, 0])
-  const [robotLoc, setRobotLoc] = useState<[number, number]>(getMiddle())
+  const [robotLoc, setRobotLoc] = useState<[number, number]>([0,0])
   const [direction, setDirection] = useState<Direction>(Direction.UP)
-  const [player, setPlayer] = useState<string>('')
-  const [page, setPage] = useState('game')
+  const [size, setSize] = useState<number>(8)
 
-  const editName = () => {
-    setGameState(GameState.EDIT)
-  }
-
-  const setPlayerWrapped = (value: string) => {
-    setPlayer(value)
-    localStorage.setItem(localItemPlayerName, value)
-  }
-
-  const newGameSetup = () => {
-    if (player !== '') {
-      newGameHandler()
-      return
-    }
-    setGameState(GameState.SETUP)
-  }
-
-  const endGame = () => {
-    if (gameState !== GameState.STARTED) return
-    handleGameOver()
-  }
-
-  const newGameHandler = () => {
+  const newGameSetup = useCallback(() => {
     setGameIdle()
     setGameState(GameState.STARTED)
-  }
+  },[size, gameState])
+
+  const endGame = useCallback(() => {
+    if (gameState !== GameState.STARTED) return
+    handleGameOver()
+  }, [gameState])
 
   const setGameIdle = () => {
+    setRobotLoc(getMiddle(size))
     setScore(0)
     setDestroyed(false)
-    setTargetLoc(getRandLocation([robotLoc[0], robotLoc[1]]))
-    setRobotLoc(getMiddle)
+    setTargetLoc(getRandLocation(size, [robotLoc[0], robotLoc[1]]))    
     setGameState(GameState.IDLE)
     setDirection(Direction.UP)
   }
@@ -90,7 +69,7 @@ const App: React.SFC<AppProps> = () => {
         break
     }
 
-    if (isAtEdge([location[0], location[1]])) {
+    if (isAtEdge(size, [location[0], location[1]])) {
       setDestroyed(true)
       handleGameOver()
       return
@@ -105,67 +84,42 @@ const App: React.SFC<AppProps> = () => {
 
   const handleGameOver = () => {
     setGameState(GameState.OVER)
-    // write to DB if not anonymous
-    if (player !== '') {
-      putDb()
-    }
   }
 
-  const putDb = async () => {
-    try {
-      const body = {
-        name: player,
-        score: score,
-      }
-      const res = await apiRequest('PUT', 'api/v2/games', body)
-      if (res !== 'success') console.log('error!')
-    } catch (e) {
-      console.log('error!', e)
-    }
-  }
 
   useEffect(() => {
     // check if the target has been reached
     if (targetLoc[0] === robotLoc[0] && targetLoc[1] === robotLoc[1]) {
       setScore(prev => prev + 1)
       // spawn new target at random location except robot location
-      setTargetLoc(getRandLocation([robotLoc[0], robotLoc[1]]))
+      setTargetLoc(getRandLocation(size, [robotLoc[0], robotLoc[1]]))
       return
     }
-  }, [robotLoc])
+  }, [size, robotLoc])
 
   useEffect(() => {
-    if (page === 'game') setGameIdle()
-  }, [page])
-
-  useEffect(() => {
-    const playerName = localStorage.getItem(localItemPlayerName)
-    if (playerName !== null) setPlayer(playerName)
+    setGameIdle()
   }, [])
+
+ 
 
   return (
     <>
-      <Layout
-        state={gameState}
-        player={player}
-        editName={editName}
-        setPage={(value: string) => setPage(value)}
-        page={page}
-      >
-        <Page name="game" page={page}>
-          <Dashboard
-            score={score}
-            timeout={timeoutHandler}
-            newGame={newGameSetup}
-            endGame={endGame}
-            state={gameState}
-          />
+      <Layout size={size} setSize={(size: number) => setSize(size)} changeEnable={gameState === GameState.IDLE }>   
+        <Dashboard
+          score={score}
+          timeout={timeoutHandler}
+          newGame={newGameSetup}
+          endGame={endGame}
+          state={gameState}
+        />
           <Screen>
-            <TableTop />
+            <TableTop  size={size} />
             {gameState > GameState.SETUP ? (
               <>
-                <Target location={[targetLoc[0], targetLoc[1]]} />
+                <Target  size={size} location={[targetLoc[0], targetLoc[1]]} />
                 <Robot
+                  size={size}
                   location={[robotLoc[0], robotLoc[1]]}
                   direction={direction}
                   destroyed={destroyed}
@@ -179,19 +133,12 @@ const App: React.SFC<AppProps> = () => {
             rotateRight={rotateRight}
             moveForward={moveForward}
           />
-        </Page>
+
       </Layout>
       <ModalOver
         state={gameState}
         score={score}
-        newGame={player === '' ? newGameSetup : newGameHandler}
-        setIdle={setGameIdle}
-      />
-      <ModalStart
-        player={player}
-        setPlayer={setPlayerWrapped}
-        state={gameState}
-        newGame={newGameHandler}
+        newGame={newGameSetup}
         setIdle={setGameIdle}
       />
     </>

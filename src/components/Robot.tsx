@@ -2,7 +2,6 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import RoverIcon from '../assets/robot.svg'
 import DestroyedIcon from '../assets/destroyed.svg'
-import { GAME_GRIDS } from '../config'
 interface RobotIconProps {
   rotation?: number
 }
@@ -18,13 +17,14 @@ export const RobotIcon = styled.img<RobotIconProps>`
 `
 
 export interface RobotProps {
+  size: number
   location: [number, number]
   direction: number
   destroyed?: boolean
 }
 
-const Robot: React.SFC<RobotProps> = ({ location, direction, destroyed }) => {
-  const scale = 100 / GAME_GRIDS
+const Robot: React.SFC<RobotProps> = ({ size, location, direction, destroyed }) => {
+  const scale = 100 / size
 
   const Icon = destroyed ? DestroyedIcon : RoverIcon
   const rotation = destroyed ? 0 : direction

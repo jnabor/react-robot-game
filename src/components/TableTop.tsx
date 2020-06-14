@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { GAME_GRIDS } from '../config'
 
 export const Tile = styled.div`
   border: 2px solid #232729;
@@ -10,14 +9,16 @@ export const Tile = styled.div`
   background-color: transparent;
 `
 
-export interface TableTopProps {}
+export interface TableTopProps {
+  size: number
+}
 
-const TableTop: React.SFC<TableTopProps> = () => {
-  const scale = 100 / GAME_GRIDS
+const TableTop: React.SFC<TableTopProps> = ({size}) => {
+  const scale = 100 / size
 
   const tiles: any[] = []
-  for (let r = 0; r < GAME_GRIDS; r++) {
-    for (let c = 0; c < GAME_GRIDS; c++) {
+  for (let r = 0; r < size; r++) {
+    for (let c = 0; c < size; c++) {
       tiles.push([`${r * scale}%`, `${c * scale}%`])
     }
   }

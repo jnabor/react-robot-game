@@ -1,6 +1,15 @@
 import styled, { css } from 'styled-components'
 import { GAME_DIMENSION } from '../config'
 
+export const SizeSelect = styled.select`
+  margin-left: 10px;
+  color: #a2a7aa;
+  background-color: #222729;
+  font-size: 16px;
+  height: 20px;
+  border: none;
+`
+
 export const baseButton = styled.button`
   background-color: #556163;
   outline: none;
@@ -86,7 +95,7 @@ export const ModalContainer = styled.div`
 `
 export const ModalContent = styled.div`
   background-color: transparent;
-  color: #04cfab;
+  color: #b5b894;
   text-align: center;
   margin: 15% auto;
   padding: 20px;

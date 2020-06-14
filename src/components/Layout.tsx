@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { GameState } from '../types'
-import { MenuButton } from './common'
+import { MenuButton, SizeSelect } from './common'
 import RobotIcon from '../assets/robot.png'
 
 export const AppLayout = styled.div`
@@ -11,7 +11,7 @@ export const AppLayout = styled.div`
 
 export const Header = styled.header`
   display: grid;
-  grid-template-columns: 32px 200px 1fr 1fr;
+  grid-template-columns: 32px 168px 1fr 200px;
   padding: 15px;
   justify-content: space-between;
   min-width: 610px;
@@ -42,23 +42,19 @@ export const Footer = styled.footer`
 `
 
 export interface LayoutProps {
-  state: GameState
-  player: string
-  editName: () => void
-  setPage: (value: string) => void
-  page: string
+  size: number
+  setSize: (size: number) => void
+  changeEnable: boolean
   children: any
 }
 
 const Layout: React.SFC<LayoutProps> = ({
-  state,
-  player,
-  editName,
-  setPage,
-  page,
+  size,
+  setSize,
+  changeEnable,
   children,
 }) => {
-  const name = player || 'anonymous'
+
 
   return (
     <AppLayout>
@@ -72,8 +68,17 @@ const Layout: React.SFC<LayoutProps> = ({
           <MenuButton>ROBOT GAME</MenuButton>
         </div>
         <div
-          style={{ textAlign: 'center', fontSize: '16px', paddingTop: '5px' }}
+          style={{ textAlign: 'center', fontSize: '16px', paddingTop: '9px', color: '#a2a7aa' }}
         >
+          <span>SIZE</span>
+          <SizeSelect disabled={!changeEnable} onChange={(e: React.FormEvent<HTMLSelectElement>) => setSize(parseInt(e.currentTarget.value, 10))} name="size" value={size}>
+            <option value="5" >5 x 5</option>
+            <option value="6" >6 x 6</option>
+            <option value="7" >7 x 7</option>
+            <option value="8" >8 x 8</option>
+            <option value="9" >9 x 9</option>
+            <option value="10" >10 x 10</option>
+        </SizeSelect>
         </div>
         <div
           style={{ justifySelf: 'end' }}
@@ -84,7 +89,8 @@ const Layout: React.SFC<LayoutProps> = ({
         <Container>{children}</Container>
       </Main>
       <Footer>
-        <span>Made with React by Jay<span style={{ color: '#267ab3'}}>son</span> N<span style={{ color: '#267ab3'}}>ab</span>or™</span>
+        <p style={{ fontSize: '12px', marginBottom: '20px'}} > Use buttons or press ← ↑ → keys in keyboard</p>
+        <p>Made with React by Jay<span style={{ color: '#267ab3'}}>son</span> N<span style={{ color: '#267ab3'}}>ab</span>or™</p>
       </Footer>
     </AppLayout>
   )

@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import StarIcon from '../assets/star.svg'
-import { GAME_GRIDS } from '../config'
 
 export const TargetIcon = styled.img`
   max-width: 80%;
@@ -11,11 +10,12 @@ export const TargetIcon = styled.img`
 `
 
 export interface TargetProps {
+  size: number
   location: [number, number]
 }
 
-const Target: React.SFC<TargetProps> = ({ location }) => {
-  const scale = 100 / GAME_GRIDS
+const Target: React.SFC<TargetProps> = ({ size, location }) => {
+  const scale = 100 / size
 
   return (
     <div
