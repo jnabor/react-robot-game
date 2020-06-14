@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "293d365ab238ebe5828df7ae0a0fed07",
+    "revision": "cb0622315aaa860d608cf9ddd2e7c889",
     "url": "/react-robot-game/index.html"
   },
   {
-    "revision": "c229f84ee549adced7e2",
-    "url": "/react-robot-game/static/css/main.26f8e1bc.chunk.css"
+    "revision": "d768f0f9e902e503db85",
+    "url": "/react-robot-game/static/css/main.7042c957.chunk.css"
   },
   {
-    "revision": "56a41ef2e398ba8ac593",
-    "url": "/react-robot-game/static/js/2.14ddb99d.chunk.js"
+    "revision": "82decc1c48a1c1358b71",
+    "url": "/react-robot-game/static/js/2.8b7388f5.chunk.js"
   },
   {
     "revision": "c64c486544348f10a6d6c716950bc223",
-    "url": "/react-robot-game/static/js/2.14ddb99d.chunk.js.LICENSE.txt"
+    "url": "/react-robot-game/static/js/2.8b7388f5.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "c229f84ee549adced7e2",
-    "url": "/react-robot-game/static/js/main.5807da9f.chunk.js"
+    "revision": "d768f0f9e902e503db85",
+    "url": "/react-robot-game/static/js/main.ee6862e7.chunk.js"
   },
   {
-    "revision": "53fd4d19e4c5a0e56cb6",
-    "url": "/react-robot-game/static/js/runtime-main.10246a4b.js"
+    "revision": "ac2d3c49e85b148fede2",
+    "url": "/react-robot-game/static/js/runtime-main.b0f5f247.js"
   },
   {
     "revision": "f2e8889bdd97265516b5600cc18a4dad",
